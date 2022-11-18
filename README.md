@@ -154,7 +154,7 @@ class _BouncyContainerState extends State<BouncyContainer>
 </td>
 
 <td>
-<img src="" alt="">
+<img src="https://github.com/bijumondal18/bouncy_container_flutter_package/blob/main/lib/src/BouncingContainer.png" alt="Sample Image">
 </td>
 
 </tr>
