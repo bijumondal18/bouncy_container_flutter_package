@@ -1,6 +1,6 @@
 name: bouncy_container
-description: Bouncing Effect Container
-version: 0.0.1
+description: This is a simple animated Container with bouncing click effect.
+version: 0.0.2
 homepage: https://github.com/bijumondal18/bouncy_container_flutter_package
 
 environment:

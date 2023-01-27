@@ -23,7 +23,7 @@ Custom Container with bouncing click effect. You can use it anywhere inside your
 ```yaml
 
 dependencies:
-    bouncy_container: ^0.0.1
+    bouncy_container: ^0.0.2
 
 ```
 
