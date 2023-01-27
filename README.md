@@ -23,7 +23,7 @@ Custom Container with bouncing click effect. You can use it anywhere inside your
 ```yaml
 
 dependencies:
-    bouncy_container: ^0.0.2
+    bouncy_container: ^0.0.3
 
 ```
 
@@ -45,10 +45,12 @@ There are multiple properties that you can modify :
     - height
     - width
     - backgroundColor
+    - shadowColor
     - padding
     - margin
     - decoration
-    - duration etc...
+    - duration
+    - radius
  
 <hr>
 

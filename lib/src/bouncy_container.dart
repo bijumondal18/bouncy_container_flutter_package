@@ -5,8 +5,11 @@ class BouncyContainer extends StatefulWidget {
   final double? width;
   final double? height;
   final Color? backgroundColor;
-  final EdgeInsets? padding;
-  final EdgeInsets? margin;
+  final Color? shadowColor;
+  final double? padding;
+  final double? margin;
+  final double? radius;
+  final double? blur;
   final Decoration? decoration;
   final VoidCallback? onPressed;
   final Duration? duration;
@@ -14,14 +17,17 @@ class BouncyContainer extends StatefulWidget {
   const BouncyContainer(
       {Key? key,
       required this.child,
-      this.width,
-      this.height,
-      this.padding,
-      this.margin,
+      this.width = 200,
+      this.height = 200,
+      this.padding = 10,
+      this.margin = 10,
       this.decoration,
       this.onPressed,
       this.duration,
-      this.backgroundColor})
+      this.backgroundColor = Colors.white,
+      this.radius = 10,
+      this.blur = 10,
+      this.shadowColor})
       : super(key: key);
 
   @override
@@ -30,11 +36,13 @@ class BouncyContainer extends StatefulWidget {
 
 class _BouncyContainerState extends State<BouncyContainer>
     with SingleTickerProviderStateMixin {
+  //Declare animation controller variable
   AnimationController? _animationController;
   double? _scale;
 
   @override
   void initState() {
+    //initialise animation controller
     _animationController = AnimationController(
         vsync: this,
         duration: widget.duration ?? const Duration(milliseconds: 150),
@@ -48,6 +56,7 @@ class _BouncyContainerState extends State<BouncyContainer>
 
   @override
   void dispose() {
+    //dispose animation controller
     _animationController!.dispose();
     super.dispose();
   }
@@ -66,19 +75,19 @@ class _BouncyContainerState extends State<BouncyContainer>
         child: Transform.scale(
           scale: _scale,
           child: Container(
-            width: widget.width ?? MediaQuery.of(context).size.width,
-            height: widget.height ?? MediaQuery.of(context).size.height,
-            padding: widget.padding ?? EdgeInsets.zero,
-            margin: widget.margin ?? EdgeInsets.zero,
+            width: widget.width,
+            height: widget.height,
+            padding: EdgeInsets.all(widget.padding!),
+            margin: EdgeInsets.all(widget.margin!),
             decoration: widget.decoration ??
                 BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: widget.backgroundColor ?? Colors.white,
-                    boxShadow: const [
+                    borderRadius: BorderRadius.circular(widget.radius!),
+                    color: widget.backgroundColor,
+                    boxShadow: [
                       BoxShadow(
-                          offset: Offset(2, 2),
-                          color: Colors.white60,
-                          blurRadius: 6)
+                          offset: const Offset(2, 2),
+                          color: widget.shadowColor ?? Colors.white60,
+                          blurRadius: widget.blur!)
                     ]),
             child: widget.child,
           ),

@@ -7,3 +7,6 @@
 
 * GNU License Added.
 
+## 0.0.3
+
+* shadow color, radius and blur added.
